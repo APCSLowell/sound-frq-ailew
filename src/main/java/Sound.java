@@ -6,18 +6,18 @@ public class Sound {
 
     // limitAmplitude method implementation
     public int limitAmplitude(int limit) {
-        int numChanges = 0;
+        int count = 0;
         for (int i = 0; i < samples.length; i++) {
             if (samples[i] > limit) {
                 samples[i] = limit;
-                numChanges++;
+                count++;
             }
             else if(samples[i] < -limit){
                 samples[i] = -limit;
-                numChanges++;
+                count++;
             }
         }
-        return numChanges;
+        return count;
     }
 
     // trimSilenceFromBeginning method implementation
