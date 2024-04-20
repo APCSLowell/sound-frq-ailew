@@ -29,7 +29,7 @@ public class Sound {
         int[] newSamples = new int[samples.length-n];
 
         for(int i = 0; i < newSamples.length;i++){
-            newSamples[i] = sam,ples[i+n];
+            newSamples[i] = samples[i+n];
         }
         samples = newSamples;
     }
