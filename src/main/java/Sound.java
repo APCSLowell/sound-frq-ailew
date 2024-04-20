@@ -32,13 +32,20 @@ public class Sound {
      */
     public void trimSilenceFromBeginning() {
         int n = 0;
-        while (samples[n] == 0) {
+        // Find the index of the first non-zero value
+        while (n < samples.length && samples[n] == 0) {
             n++;
         }
+        // If all values are zero, there's nothing to trim
+        if (n == samples.length) {
+            return;
+        }
+        // Create a new array with the non-zero values
         int[] newSamples = new int[samples.length - n];
         for (int i = 0; i < newSamples.length; i++) {
             newSamples[i] = samples[i + n];
         }
+        // Update the samples array to contain only the non-zero values
         samples = newSamples;
     }
 }
