@@ -19,7 +19,7 @@ public class Sound {
                 count++;
             } else if (samples[i] < -limit) {
                 samples[i] = -limit;
-                count++; // added missing semicolon
+                count++; //
             }
         }
         return count;
@@ -36,7 +36,7 @@ public class Sound {
         while (n < samples.length && samples[n] == 0) {
             n++;
         }
-        // If all values are zero, there's nothing to trim
+
         if (n == samples.length) {
             return;
         }
@@ -45,7 +45,7 @@ public class Sound {
         for (int i = 0; i < newSamples.length; i++) {
             newSamples[i] = samples[i + n];
         }
-        // Update the samples array to contain only the non-zero values
+
         samples = newSamples;
     }
 }
