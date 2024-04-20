@@ -8,9 +8,12 @@ public class Sound {
     public int limitAmplitude(int limit) {
         int numChanges = 0;
         for (int i = 0; i < samples.length; i++) {
-            if (Math.abs(samples[i]) > limit) {
+            if (samples[i] > limit) {
                 numChanges++;
-                samples[i] = samples[i] > 0 ? limit : -limit;
+            }
+            else if(samples[i] < - limit){
+                samples[i] = -litmit;
+                numChanges++;
             }
         }
         return numChanges;
@@ -18,10 +21,15 @@ public class Sound {
 
     // trimSilenceFromBeginning method implementation
     public void trimSilenceFromBeginning() {
-        int firstNonZeroIndex = 0;
-        while (samples[firstNonZeroIndex] == 0) {
-            firstNonZeroIndex++;
+        int n = 0;
+        while (samples[n] == 0) {
+            n++;
         }
-        samples = Arrays.copyOfRange(samples, firstNonZeroIndex, samples.length);
+        int[] newSamples = new int[samples.length-n];
+
+        for(int i = 0; i < newSamples.length;i++){
+            newSamples[i] = sam,ples[i+n];
+        }
+        samples = newSamples;
     }
 }
