@@ -19,7 +19,7 @@ public class Sound {
                 count++;
             } else if (samples[i] < -limit) {
                 samples[i] = -limit;
-                count++;
+                count++; // added missing semicolon
             }
         }
         return count;
