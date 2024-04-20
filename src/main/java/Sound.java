@@ -13,11 +13,17 @@ public class Sound
    *         Precondition: limit >= 0
    *  @return the number of values in this sound that this method changed
    */
-  public int limitAmplitude(int limit)
-  {  
-    /* to be implemented in part (a) */
-    return 0;
-  }
+public int limitAmplitude(int limit) {
+    int numChanges = 0;
+    for (int i = 0; i < samples.length; i++) {
+        if (Math.abs(samples[i]) > limit) {
+            numChanges++;
+            samples[i] = samples[i] > 0 ? limit : -limit;
+        }
+    }
+    return numChanges;
+}
+
 
 
 
@@ -26,8 +32,12 @@ public class Sound
    *  Precondition: samples contains at least one nonzero value
    *  Postcondition: the length of samples reflects the removal of starting silence
    */
-  public void trimSilenceFromBeginning()
-  {
-    /* to be implemented in part (b) */
-  }
+public void trimSilenceFromBeginning() {
+    int firstNonZeroIndex = 0;
+    while (samples[firstNonZeroIndex] == 0) {
+        firstNonZeroIndex++;
+    }
+    int[] trimmedSamples = Arrays.copyOfRange(samples, firstNonZeroIndex, samples.length);
+    samples = trimmedSamples;
 }
+
